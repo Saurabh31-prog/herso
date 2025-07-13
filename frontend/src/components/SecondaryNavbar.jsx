@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 
 function SecondaryNavbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -124,7 +126,8 @@ function SecondaryNavbar() {
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/mission">Mission</a>
+              <Link to="/mission">Mission</Link>
+
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
