@@ -1,8 +1,12 @@
+import { useLocation } from "react-router-dom";
+
 import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+//framer
+import { motion } from "framer-motion";
 
 function SecondaryNavbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -11,6 +15,27 @@ function SecondaryNavbar() {
   //for dropdown to close when clicked anywhere in page
   const dropdownRef = useRef(null);
 
+  //setup for scrolldetection for glass-effect
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(true);
+      return;
+    }
+
+    const handleScroll = () => {
+      console.log("Scroll position:", window.scrollY);
+      setScrolled(window.scrollY > 261.7475891113281); // 👈 should trigger only after 1000px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]); // 👈 make sure `isHome` is in dependency array
+
+  //for dropdown to close when clicked anywhere in page
   useEffect(() => {
     const handleClickOutside = (even) => {
       if (dropdownRef.current && !dropdownRef.current.contains(even.target)) {
@@ -23,7 +48,28 @@ function SecondaryNavbar() {
   });
 
   return (
-    <nav className="bg-[#2f4f4f] text-white py-3 px-6 sticky top-0 z-50 select-none caret-transparent">
+    <motion.nav
+      className={`
+        ${
+          scrolled
+            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-700 fixed top-4 left-0 right-0 mx-6 rounded-lg z-50 transition-all duration-500 border border-gray-300"
+            : isHome
+            ? "bg-[#2f4f4f] text-white sticky top-0 w-full z-50 transition-all duration-500"
+            : "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
+        } py-6 px-6 select-none caret-transparent`}
+      style={
+        scrolled
+          ? {
+              maxWidth: "calc(100vw - 3rem)",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }
+          : {}
+      }
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto flex justify-center items-center">
         {/* Toggle Button for Mobile  hamburger menu and close button*/}
         <div className="md:hidden flex-1">
@@ -62,7 +108,7 @@ function SecondaryNavbar() {
             </span>
           </li>
 
-                {/*about society and dropdown */}
+          {/*about society and dropdown */}
           <li className="relative group cursor-pointer" ref={dropdownRef}>
             <div
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -75,7 +121,7 @@ function SecondaryNavbar() {
 
               <FiChevronDown
                 size={20}
-                className={`text-white text-2xl transition-transform duration-300 ${
+                className={` text-2xl transition-transform duration-300 ${
                   isDropdownOpen ? "rotate-180" : ""
                 } group-hover:text-cyan-400`}
               />
@@ -229,7 +275,7 @@ function SecondaryNavbar() {
           </ul>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }
 

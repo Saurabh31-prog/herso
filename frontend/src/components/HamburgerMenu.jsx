@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaPhoneSquareAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { AiOutlineMessage } from "react-icons/ai";
+
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +32,7 @@ const HamburgerMenu = () => {
         className="text-white duration-300 hover:text-teal-400 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-400"
         aria-label="Toggle contact menu"
       >
-        <FaBars size={22} />
+        <AiOutlineMessage  size={30} />
       </button>
 
       {/* Dropdown Menu */}

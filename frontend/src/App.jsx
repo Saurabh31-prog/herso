@@ -2,6 +2,9 @@
 import "./App.css";
 import { Routes, Route, useLocation } from "react-router-dom";
 
+import { AnimatePresence } from "framer-motion";
+
+
 //components
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -14,6 +17,7 @@ import ScrollToTop from "./components/ScrollToTop";
 //import Secondary navbar links
 import Home from "./pages/Home";
 import Mission from "./pages/Mission";
+import Contact from "./pages/Contact";
 
 function App() {
   const location = useLocation();
@@ -35,12 +39,15 @@ function App() {
 
         {/* Main content area */}
       <main className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mission" element={<Mission />} />
-          {/* Add more routes here as needed */}
-        </Routes>
-      </main>
+  <AnimatePresence mode="wait">
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<Home />} />
+      <Route path="/mission" element={<Mission />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  </AnimatePresence>
+</main>
+
 
       <Footer />
       <ScrollToTopButton />
