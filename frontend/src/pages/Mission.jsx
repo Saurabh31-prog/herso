@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function Mission() {
   return (
-    <section className="relative flex flex-col flex-grow justify-center items-center bg-gradient-to-br from-emerald-100 via-blue-50 to-blue-200 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent">
+    <section className="relative flex flex-col flex-grow justify-center items-center bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent pattern-dots">
       {/* Decorative background blob */}
       <motion.div
         aria-hidden
@@ -47,10 +47,10 @@ function Mission() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h1 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3" >
           MISSION
         </h1>
-        <p className="text-justify italic text-base leading-relaxed text-gray-700 mb-8">
+        <p className="text-justify italic text-base leading-relaxed text-gray-700  mb-8 font-['PT_Serif'] ">
           The society is with targeted mission to improve the quality,
           efficiency and effectiveness of education, research and training
           systems in India and across the globe. This will in turn be a vantage
@@ -61,10 +61,10 @@ function Mission() {
           visibility of higher educational activities focused on services to
           society and nation.
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+        <h2 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 ]" >
           VISION
         </h2>
-        <p className="text-justify italic text-base leading-relaxed text-gray-700">
+        <p className="text-justify italic text-base leading-relaxed text-gray-700 font-['PT_Serif'] ">
           To be one of the best non-governmental organizations across the globe
           making education significantly research oriented and practical in
           learning.

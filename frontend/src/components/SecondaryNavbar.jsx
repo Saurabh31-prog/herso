@@ -56,7 +56,8 @@ function SecondaryNavbar() {
             : isHome
             ? "bg-[#2f4f4f] text-white sticky top-0 w-full z-50 transition-all duration-500"
             : "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
-        } py-6 px-6 select-none caret-transparent`}
+        } py-2 px-4 sm:py-4 sm:px-6
+ select-none caret-transparent`}
       style={
         scrolled
           ? {

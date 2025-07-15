@@ -18,6 +18,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import Mission from "./pages/Mission";
 import Contact from "./pages/Contact";
+import Management from "./pages/Management";
 
 function App() {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/mission" element={<Mission />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/management" element={<Management />} />
     </Routes>
   </AnimatePresence>
 </main>
