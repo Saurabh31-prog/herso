@@ -20,7 +20,7 @@ function Objectives() {
   ];
 
   return (
-    <section className="relative flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 via-violet-100 to-emerald-100 py-20 px-4 pt-32 select-none caret-transparent">
+    <section className="relative flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 via-violet-100 to-emerald-100 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
       {/* Background Decorative Blobs */}
       <motion.div
         aria-hidden
@@ -44,9 +44,11 @@ function Objectives() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center font-Libre-Baskerville">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center font-Libre-Baskerville">
           OBJECTIVES
         </h1>
+                <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-6 mb-10" />
+
         <ul className="list-disc pl-6 space-y-4 text-justify text-gray-700 text-base leading-relaxed font-['PT_Serif']">
           {objectives.map((item, index) => (
             <li key={index}>{item}</li>

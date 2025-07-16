@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function Mission() {
   return (
-    <section className="relative flex flex-col flex-grow justify-center items-center bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent pattern-dots">
+    <section className="relative flex flex-col flex-grow justify-center items-center bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
       {/* Decorative background blob */}
       <motion.div
         aria-hidden

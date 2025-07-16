@@ -67,7 +67,7 @@ function RegistrationDetails() {
             <FaTags className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
             Registration No.
           </h2>
-          <p className="mt-0 font-semibold text-lg text-cyan-700">
+          <p className="mt-0 font-semibold text-lg text-gray-700">
             MAHA/651/2013/THANE
           </p>
         </motion.div>

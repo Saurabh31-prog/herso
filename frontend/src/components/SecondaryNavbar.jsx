@@ -47,12 +47,14 @@ function SecondaryNavbar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   });
 
+  const dropdownTimeout = useRef(null);
+
   return (
     <motion.nav
       className={`
         ${
           scrolled
-            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-700 fixed top-4 left-0 right-0 mx-6 rounded-lg z-50 transition-all duration-500 border border-gray-300"
+            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-700 fixed top-4 left-0 right-0 mx-6 rounded-lg z-50 transition-all duration-500 border border-gray-500"
             : isHome
             ? "bg-[#2f4f4f] text-white sticky top-0 w-full z-50 transition-all duration-500"
             : "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
@@ -110,9 +112,19 @@ function SecondaryNavbar() {
           </li>
 
           {/*about society and dropdown */}
-          <li className="relative group cursor-pointer" ref={dropdownRef}>
+          <li
+  className="relative group cursor-pointer"
+  ref={dropdownRef}
+>
+
             <div
-              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              onMouseEnter={() =>{
+                clearTimeout(dropdownTimeout.current);
+                setIsDropdownOpen(true);
+              }}
+              onMouseLeave={() =>{
+                dropdownTimeout.current = setTimeout(() => setIsDropdownOpen(false), 300);
+              }}
               className="relative inline-flex items-center gap-1 cursor-pointer transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400"
             >
               <span className="relative">
@@ -130,6 +142,15 @@ function SecondaryNavbar() {
 
             {/* Dropdown */}
             <ul
+
+            onMouseEnter={() =>{
+              clearTimeout(dropdownTimeout.current);
+              setIsDropdownOpen(true);
+            }}
+            onMouseLeave={() => {
+      dropdownTimeout.current = setTimeout(() => setIsDropdownOpen(false), 10);
+    }}
+
               className={`absolute top-full left-[-10] mt-3 bg-white text-black rounded-sm shadow-lg z-50 min-w-[250px] py-2 transition-all duration-300 ease-in-out transform
     ${
       isDropdownOpen
@@ -208,6 +229,9 @@ function SecondaryNavbar() {
           </li>
         </ul>
       </div>
+
+
+    
 
       {/* Mobile Dropdown */}
       {isMobileOpen && (
