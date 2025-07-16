@@ -36,10 +36,10 @@ function Management() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide mb-2 text-[#7c0a02] font-serif" style={{ fontFamily: 'Playfair Display, serif' }}>
+        <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide mb-2 text-[#7c0a02] font-UoqMunThenKhung">
           HIGHER EDUCATION AND RESEARCH SOCIETY
         </h1>
-        <h3 className="text-2xl md:text-3xl font-black text-purple-950 mt-2 mb-4 font-sans" style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.05em' }}>
+        <h3 className="text-2xl md:text-3xl font-black text-purple-950 mt-2 mb-4 font-sans " style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.05em' }}>
           MANAGEMENT
         </h3>
         <div className="w-20 border-t-2 border-purple-400 mx-auto mt-2" />

@@ -104,7 +104,7 @@ function SecondaryNavbar() {
         <ul className="hidden md:flex space-x-6 uppercase text-sm font-semibold tracking-wide">
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
@@ -138,35 +138,35 @@ function SecondaryNavbar() {
     }`}
             >
               <li>
-                <a
-                  href="/society-at-glance"
+                <Link
+                  to="about/society-at-glance"
                   className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
                 >
                   Society at Glance
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/objectives"
+                <Link
+                  to="about/objectives"
                   className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
                 >
                   Objectives
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/registration-details"
+                <Link
+                  to="about/registration-details"
                   className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
                 >
                   Registration Details
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/management">Management</a>
+              <Link to="/management">Management</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
@@ -181,28 +181,28 @@ function SecondaryNavbar() {
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/online-journal">Online Journal</a>
+              <Link to="/online-journal">Online Journal</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/print-journal">Print Journal</a>
+              <Link to="/print-journal">Print Journal</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/photo-gallery">Photo Gallery</a>
+              <Link to="/photo-gallery">Photo Gallery</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <a href="/contact">Contact</a>
+              <Link to="/contact">Contact</Link>
               <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
@@ -220,9 +220,9 @@ function SecondaryNavbar() {
         >
           <ul className="flex flex-col space-y-4 mt-4 text-sm font-semibold uppercase tracking-wide px-4">
             <li>
-              <a href="/" className="hover:text-cyan-400">
+              <Link to="/" className="hover:text-cyan-400">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
               <details className="group cursor-pointer">
@@ -231,47 +231,47 @@ function SecondaryNavbar() {
                   <FiChevronDown className=" ml-1 transition-transform duration-300 group-open:rotate-180" />
                 </summary>
                 <div className="overflow-hidden max-h-0 group-open:max-h-40 transition-all duration-500 ease-in-out ml-4 mt-2 space-y-2 text-white/80">
-                  <a href="/history" className="block hover:text-cyan-400">
+                  <Link to="about/society-at-glance" className="block hover:text-cyan-400">
                     Society at Glance
-                  </a>
-                  <a href="/vision" className="block hover:text-cyan-400">
+                  </Link>
+                  <Link to="about/objectives" className="block hover:text-cyan-400">
                     Objectives
-                  </a>
-                  <a href="/team" className="block hover:text-cyan-400">
+                  </Link>
+                  <Link to="about/registration-details" className="block hover:text-cyan-400">
                     Registration Details
-                  </a>
+                  </Link>
                 </div>
               </details>
             </li>
             <li>
-              <a href="/management" className="hover:text-cyan-400">
+              <Link to="/management" className="hover:text-cyan-400">
                 Management
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/mission" className="hover:text-cyan-400">
+              <Link to="/mission" className="hover:text-cyan-400">
                 Mission
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/online-journal" className="hover:text-cyan-400">
+              <Link to="/online-journal" className="hover:text-cyan-400">
                 Online Journal
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/print-journal" className="hover:text-cyan-400">
+              <Link to="/print-journal" className="hover:text-cyan-400">
                 Print Journal
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/gallery" className="hover:text-cyan-400">
+              <Link to="/gallery" className="hover:text-cyan-400">
                 Photo Gallery
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-cyan-400">
+              <Link to="/contact" className="hover:text-cyan-400">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -281,3 +281,6 @@ function SecondaryNavbar() {
 }
 
 export default SecondaryNavbar;
+
+
+

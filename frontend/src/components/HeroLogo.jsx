@@ -20,9 +20,9 @@ const HeroLogo = () => {
         <div className="text-center sm:text-left">
           <a href="/">
             <h1
-              className="relative inline-block text-center text-gray-900 dark:text-black 
+              className="relative inline-block text-center text-gray-900 
              text-xl sm:text-2xl md:text-3xl lg:text-4xl 
-             font-semibold transition-all duration-300 ease-in-out 
+             font-semibold font-UoqMunThenKhung transition-all duration-300 ease-in-out 
              hover:text-cyan-700 whitespace-nowrap
              after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 
              after:h-[2px] after:w-0 hover:after:w-full 

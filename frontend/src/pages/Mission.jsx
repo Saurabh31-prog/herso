@@ -47,7 +47,7 @@ function Mission() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3" >
+        <h1 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 font-Libre-Baskerville" >
           MISSION
         </h1>
         <p className="text-justify italic text-base leading-relaxed text-gray-700  mb-8 font-['PT_Serif'] ">
@@ -61,7 +61,7 @@ function Mission() {
           visibility of higher educational activities focused on services to
           society and nation.
         </p>
-        <h2 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 ]" >
+        <h2 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 font-Libre-Baskerville" >
           VISION
         </h2>
         <p className="text-justify italic text-base leading-relaxed text-gray-700 font-['PT_Serif'] ">

@@ -19,6 +19,10 @@ import Home from "./pages/Home";
 import Mission from "./pages/Mission";
 import Contact from "./pages/Contact";
 import Management from "./pages/Management";
+import SocietyAtGlance from "./pages/SocietyAtGlance";
+import Objectives from './pages/Objectives';
+import  RegistrationDetails  from "./pages/RegistrationDetails";
+
 
 function App() {
   const location = useLocation();
@@ -46,6 +50,9 @@ function App() {
       <Route path="/mission" element={<Mission />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/management" element={<Management />} />
+      <Route path="/about/society-at-glance" element={<SocietyAtGlance />} />
+      <Route path="/about/objectives" element={<Objectives />} />
+      <Route path="/about/registration-details" element={<RegistrationDetails />} />
     </Routes>
   </AnimatePresence>
 </main>

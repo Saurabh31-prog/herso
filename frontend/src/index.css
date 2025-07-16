@@ -1,5 +1,24 @@
+ @font-face{
+  font-family: Libre-Baskerville; /* heading-font */
+  src: url('./assets/fonts/LibreBaskerville-Bold.ttf');
+ }
+ @font-face {
+  font-family: 'UoqMunThenKhung';
+  src: url('./assets/fonts/UoqMunThenKhung-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Cactus-Classical-Serif'; /* body-font secondary headingfont */
+  src: url('./assets/fonts/CactusClassicalSerif-Regular.ttf') format('truetype');
+}
+
+
  @import "tailwindcss"; 
 
+@theme{
+  --font-Libre-Baskerville: Libre-Baskerville;
+  --font-UoqMunThenKhung: UoqMunThenKhung;
+  --font-Cactus-Classical-Serif: Cactus-Classical-Serif;
+}
 
 html, body {
   height: 100%;

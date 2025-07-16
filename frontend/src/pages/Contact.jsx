@@ -30,7 +30,7 @@ function Contact() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold font-serif text-gray-900 tracking-wide mb-2">
+        <h1 className="text-4xl md:text-5xl font-bold font-Libre-Baskerville text-gray-900 tracking-wide mb-2">
           Get in Touch
         </h1>
         <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-6" />
@@ -44,11 +44,11 @@ function Contact() {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3 font-Cactus-Classical-Serif" >
             <FaMapMarkerAlt className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
             Official Address
           </h2>
-          <address className="not-italic text-gray-700 leading-relaxed text-base">
+          <address className="not-italic text-gray-700 leading-relaxed text-base font">
             NL 6/5/13, Sector – 10, <br />
             Nerul, Navi Mumbai – 400706<br />
             Maharashtra, India
@@ -62,9 +62,9 @@ function Contact() {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
-            <FaEnvelope className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
-            <span className="whitespace-nowrap">Address for Correspondence</span>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            <FaEnvelope  className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
+            <span className="font-Cactus-Classical-Serif whitespace-nowrap" >Address for Correspondence</span>
           </h2>
           <address className="not-italic text-gray-700 leading-relaxed text-base">
             Dr. Sudhir Nikam <br />
