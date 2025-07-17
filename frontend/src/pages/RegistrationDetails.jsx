@@ -37,8 +37,8 @@ function RegistrationDetails() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-4xl md:text-5xl font-bold font-Libre-Baskerville text-gray-900 tracking-wide mb-2">
-          Registration Details
+        <h1 className="text-3xl md:text-4xl font-bold font-Libre-Baskerville text-gray-900  mb-2" style={{wordSpacing: "0.3em"}}>
+          REGISTRATION DETAILS
         </h1>
         <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-6" />
       </motion.div>

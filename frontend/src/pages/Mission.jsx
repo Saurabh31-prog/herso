@@ -50,7 +50,7 @@ function Mission() {
         <h1 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 font-Libre-Baskerville" >
           MISSION
         </h1>
-        <p className="text-justify italic text-base leading-relaxed text-gray-700  mb-8 font-['PT_Serif'] ">
+        <p className="text-justify italic text-base leading-relaxed text-gray-900  mb-8 font-['PT_Serif'] ">
           The society is with targeted mission to improve the quality,
           efficiency and effectiveness of education, research and training
           systems in India and across the globe. This will in turn be a vantage
@@ -64,7 +64,7 @@ function Mission() {
         <h2 className="text-3xl md:text-4xl font-bold mb-0 flex items-center gap-3 font-Libre-Baskerville" >
           VISION
         </h2>
-        <p className="text-justify italic text-base leading-relaxed text-gray-700 font-['PT_Serif'] ">
+        <p className="text-justify italic text-base leading-relaxed text-gray-900 font-['PT_Serif'] ">
           To be one of the best non-governmental organizations across the globe
           making education significantly research oriented and practical in
           learning.

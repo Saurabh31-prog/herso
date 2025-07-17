@@ -10,6 +10,10 @@
   font-family: 'Cactus-Classical-Serif'; /* body-font secondary headingfont */
   src: url('./assets/fonts/CactusClassicalSerif-Regular.ttf') format('truetype');
 }
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter.ttf') format('truetype');
+}
 
 
  @import "tailwindcss"; 
@@ -18,6 +22,7 @@
   --font-Libre-Baskerville: Libre-Baskerville;
   --font-UoqMunThenKhung: UoqMunThenKhung;
   --font-Cactus-Classical-Serif: Cactus-Classical-Serif;
+  --font-Inter: Inter;
 }
 
 html, body {

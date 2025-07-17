@@ -49,7 +49,7 @@ function Objectives() {
         </h1>
                 <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-6 mb-10" />
 
-        <ul className="list-disc pl-6 space-y-4 text-justify text-gray-700 text-base leading-relaxed font-['PT_Serif']">
+        <ul className="list-disc pl-6 space-y-4 text-justify text-gray-900 text-base leading-relaxed font-['PT_Serif']">
           {objectives.map((item, index) => (
             <li key={index}>{item}</li>
           ))}

@@ -28,12 +28,12 @@ export default function SocietyAtGlance() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-3xl md:text-4xl font-bold  font-Libre-Baskerville text-center">
-          SOCIETY AT A GLANCE
+        <h1 className="text-3xl md:text-4xl font-bold  font-Libre-Baskerville text-center" style={{wordSpacing: "0.3em"}}>
+          SOCIETY AT GLANCE
         </h1>
         <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-1 mb-7" />
 
-        <p className="text-justify text-base leading-relaxed text-gray-700 font-['PT_Serif']">
+        <p className="text-justify text-base leading-relaxed text-gray-900  font-['PT_Serif']">
           The Higher Education and Research Society is a New Mumbai-based
           international learned society concerned to advance understanding of
           higher education, especially through the insights, perspectives and
@@ -48,7 +48,7 @@ export default function SocietyAtGlance() {
           practical and solution based approach to the higher education in
           general, introduction of applied education and many more…
         </p>
-        <p className="text-justify text-base leading-relaxed text-gray-700 font-['PT_Serif']">
+        <p className="text-justify text-base leading-relaxed text-gray-900 font-['PT_Serif']">
           The society aims to attain the sustainable development in the field of
           higher education and research through constant support to research and
           higher learning activities through various means available. This role
@@ -66,7 +66,7 @@ export default function SocietyAtGlance() {
           through raising awareness and influencing behaviour, has a pivotal
           function, if sustainable development is to be achieved.
         </p>
-        <p className="text-justify text-base leading-relaxed text-gray-700 font-['PT_Serif']">
+        <p className="text-justify text-base leading-relaxed text-gray-900 font-['PT_Serif']">
           Progressively, universities and other higher education institutions
           have been incorporating sustainable development values and practices
           into their core activities like teaching and research, institutional
@@ -76,7 +76,7 @@ export default function SocietyAtGlance() {
           however, has failed to specify the various actions that higher
           education needs to adopt.
         </p>
-        <p className="text-justify text-base leading-relaxed text-gray-700 font-['PT_Serif']">
+        <p className="text-justify text-base leading-relaxed text-gray-900 font-['PT_Serif']">
           Therefore, the work the society intended to undertake is to identify
           and communicate good practice case studies in teaching and research,
           community relations and institutional management. It will surely help
@@ -85,7 +85,7 @@ export default function SocietyAtGlance() {
           where policy solutions may be needed to support higher educations’
           contribution to sustainable development.
         </p>
-        <p className="text-justify text-base leading-relaxed text-gray-700 font-['PT_Serif']">
+        <p className="text-justify text-base leading-relaxed text-gray-900 font-['PT_Serif']">
           Hence, with a vigour and vitality in our ideas and dreams to undertake
           a herculean task of spreading applied as well as conceptual higher
           education and research to boost the knowledge and economy.

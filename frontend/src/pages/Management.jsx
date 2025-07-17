@@ -36,13 +36,13 @@ function Management() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-2xl md:text-3xl font-extrabold tracking-wide mb-2 text-[#7c0a02] font-UoqMunThenKhung">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-wide mb-2 text-[#7c0a02] font-UoqMunThenKhung"style={{wordSpacing: "0.3em"}}>
           HIGHER EDUCATION AND RESEARCH SOCIETY
         </h1>
-        <h3 className="text-2xl md:text-3xl font-black text-purple-950 mt-2 mb-4 font-sans " style={{ fontFamily: 'Roboto, sans-serif', letterSpacing: '0.05em' }}>
+        <h3 className="text-2xl md:text-3xl font-semibold text-purple-950 mt-2 mb-4 font-Cactus-Classical-Serif" style={{ wordSpacing: '0.3em' }}>
           MANAGEMENT
         </h3>
-        <div className="w-20 border-t-2 border-purple-400 mx-auto mt-2" />
+        <div className="w-20 border-t-2 border-purple-400 mx-auto mt-6 " />
       </motion.div>
       {/* Table Card */}
       <motion.div
