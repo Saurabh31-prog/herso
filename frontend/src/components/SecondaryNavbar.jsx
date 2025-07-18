@@ -54,7 +54,7 @@ function SecondaryNavbar() {
       className={`
         ${
           scrolled
-            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-700 fixed top-4 left-0 right-0 mx-6 rounded-lg z-50 transition-all duration-500 border border-gray-500"
+            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-900 fixed top-4 left-0 right-0 mx-6 rounded-lg z-50 transition-all duration-500 border border-gray-500"
             : isHome
             ? "bg-[#2f4f4f] text-white sticky top-0 w-full z-50 transition-all duration-500"
             : "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
@@ -106,132 +106,140 @@ function SecondaryNavbar() {
         <ul className="hidden md:flex space-x-6 uppercase text-sm font-semibold tracking-wide">
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/">Home</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link className="font-IBMPlexSans font-light" to="/">
+                Home
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           {/*about society and dropdown */}
-          <li
-  className="relative group cursor-pointer"
-  ref={dropdownRef}
->
-
+          <li className="relative group cursor-pointer" ref={dropdownRef}>
             <div
-              onMouseEnter={() =>{
+              onMouseEnter={() => {
                 clearTimeout(dropdownTimeout.current);
                 setIsDropdownOpen(true);
               }}
-              onMouseLeave={() =>{
-                dropdownTimeout.current = setTimeout(() => setIsDropdownOpen(false), 300);
+              onMouseLeave={() => {
+                dropdownTimeout.current = setTimeout(
+                  () => setIsDropdownOpen(false),
+                  300
+                );
               }}
               className="relative inline-flex items-center gap-1 cursor-pointer transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400"
             >
-              <span className="relative">
+              <span className="relative font-IBMPlexSans font-light">
                 About Society
-                <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+                <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
               </span>
 
               <FiChevronDown
-                size={20}
+                size={16}
                 className={` text-2xl transition-transform duration-300 ${
                   isDropdownOpen ? "rotate-180" : ""
-                } group-hover:text-cyan-400`}
+                }`}
               />
             </div>
 
             {/* Dropdown */}
-            <ul
-
-            onMouseEnter={() =>{
-              clearTimeout(dropdownTimeout.current);
-              setIsDropdownOpen(true);
-            }}
-            onMouseLeave={() => {
-      dropdownTimeout.current = setTimeout(() => setIsDropdownOpen(false), 10);
-    }}
-
-              className={`absolute top-full left-[-10] mt-3 bg-white text-black rounded-sm shadow-lg z-50 min-w-[250px] py-2 transition-all duration-300 ease-in-out transform
+            <div
+              onMouseEnter={() => {
+                clearTimeout(dropdownTimeout.current);
+                setIsDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                dropdownTimeout.current = setTimeout(
+                  () => setIsDropdownOpen(false),
+                  10
+                );
+              }}
+              className={`absolute top-full left-[-10] mt-3 bg-white text-black rounded-lg border border-gray-500 shadow-lg z-50 min-w-[250px] transition-all duration-300 ease-in-out transform
     ${
       isDropdownOpen
         ? "opacity-100 scale-100 pointer-events-auto"
         : "opacity-0 scale-95 pointer-events-none"
     }`}
             >
-              <li>
-                <Link
-                  to="about/society-at-glance"
-                  className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
-                >
-                  Society at Glance
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="about/objectives"
-                  className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
-                >
-                  Objectives
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="about/registration-details"
-                  className="block px-6 py-3 hover:bg-cyan-100 text-sm font-medium transition-colors duration-300"
-                >
-                  Registration Details
-                </Link>
-              </li>
-            </ul>
+              <Link
+                to="about/society-at-glance"
+                className="block px-6 py-3 hover:bg-cyan-200 hover:text-black rounded-t-lg text-sm transition-colors duration-300 font-IBMPlexSans font-light"
+              >
+                Society at Glance
+              </Link>
+              <Link
+                to="about/objectives"
+                className="block px-6 py-3 hover:bg-cyan-200 hover:text-black  text-sm font-IBMPlexSans font-light transition-colors duration-300"
+              >
+                Objectives
+              </Link>
+              <Link
+                to="about/registration-details"
+                className="block px-6 py-3 hover:bg-cyan-200 hover:text-black rounded-b-lg text-sm font-IBMPlexSans font-light transition-colors duration-300"
+              >
+                Registration Details
+              </Link>
+            </div>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/management">Management</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link className="font-IBMPlexSans font-light" to="/management">
+                Management
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/mission">Mission</Link>
+              <Link className="font-IBMPlexSans font-light" to="/mission">
+                Mission
+              </Link>
 
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/online-journal">Online Journal</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link
+                className="font-IBMPlexSans font-light"
+                to="/online-journal"
+              >
+                Online Journal
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/print-journal">Print Journal</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link className="font-IBMPlexSans font-light" to="/print-journal">
+                Print Journal
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/photo-gallery">Photo Gallery</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link className="font-IBMPlexSans font-light" to="/photo-gallery">
+                Photo Gallery
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
 
           <li className="relative group cursor-pointer">
             <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-              <Link to="/contact">Contact</Link>
-              <span className="absolute bottom-0 left-0 h-[2px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
+              <Link className="font-IBMPlexSans font-light" to="/contact">
+                Contact
+              </Link>
+              <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
             </span>
           </li>
         </ul>
       </div>
-
-
-    
 
       {/* Mobile Dropdown */}
       {isMobileOpen && (
@@ -242,7 +250,7 @@ function SecondaryNavbar() {
               : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
-          <ul className="flex flex-col space-y-4 mt-4 text-sm font-semibold uppercase tracking-wide px-4">
+          <ul className="flex flex-col space-y-4 mt-4 text-sm font-semilight uppercase tracking-wide px-4">
             <li>
               <Link to="/" className="hover:text-cyan-400">
                 Home
@@ -255,13 +263,22 @@ function SecondaryNavbar() {
                   <FiChevronDown className=" ml-1 transition-transform duration-300 group-open:rotate-180" />
                 </summary>
                 <div className="overflow-hidden max-h-0 group-open:max-h-40 transition-all duration-500 ease-in-out ml-4 mt-2 space-y-2 text-white/80">
-                  <Link to="about/society-at-glance" className="block hover:text-cyan-400">
+                  <Link
+                    to="about/society-at-glance"
+                    className="block hover:text-cyan-400"
+                  >
                     Society at Glance
                   </Link>
-                  <Link to="about/objectives" className="block hover:text-cyan-400">
+                  <Link
+                    to="about/objectives"
+                    className="block hover:text-cyan-400"
+                  >
                     Objectives
                   </Link>
-                  <Link to="about/registration-details" className="block hover:text-cyan-400">
+                  <Link
+                    to="about/registration-details"
+                    className="block hover:text-cyan-400"
+                  >
                     Registration Details
                   </Link>
                 </div>
@@ -305,6 +322,3 @@ function SecondaryNavbar() {
 }
 
 export default SecondaryNavbar;
-
-
-

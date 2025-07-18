@@ -46,13 +46,13 @@ function Management() {
       </motion.div>
       {/* Table Card */}
       <motion.div
-        className="relative z-10 w-full max-w-3xl bg-white/90 border border-gray-200 shadow-2xl rounded-md p-2 sm:p-6 backdrop-blur-md"
+        className="relative z-10 w-full max-w-3xl bg-white/90 border border-gray-200 shadow-2xl rounded-sm p-2 sm:p-6 backdrop-blur-md"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm md:text-base text-left rounded-md overflow-hidden font-sans" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <table className="min-w-full text-sm md:text-base text-left rounded-sm  overflow-hidden font-sans" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             <thead>
               <tr className="bg-gray-800 text-white border-b border-gray-300">
                 <th className="py-4 px-4 font-bold text-base md:text-lg">Sr. No.</th>
@@ -75,9 +75,9 @@ function Management() {
                         : "bg-white"
                     } hover:bg-pink-100/80`}
                   >
-                    <td className="py-3 px-4 align-top rounded-l-xl">{row.sr}</td>
-                    <td className="py-3 px-4 align-top">{row.name}</td>
-                    <td className="py-3 px-4 align-top rounded-r-xl">{row.designation}</td>
+                    <td className="py-3 px-4 align-top ">{row.sr}</td>
+                    <td className="py-3 px-4 align-top ">{row.name}</td>
+                    <td className="py-3 px-4 align-top">{row.designation}</td>
                   </tr>
                 );
               })}

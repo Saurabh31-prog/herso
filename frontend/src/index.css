@@ -14,6 +14,11 @@
   font-family: 'Inter';
   src: url('./assets/fonts/Inter.ttf') format('truetype');
 }
+/* navbar-font */
+@font-face {
+  font-family: 'IBMPlexSans';
+  src: url('./assets/fonts/IBMPlexSans-Regular.ttf') format('truetype');
+}
 
 
  @import "tailwindcss"; 
@@ -23,6 +28,7 @@
   --font-UoqMunThenKhung: UoqMunThenKhung;
   --font-Cactus-Classical-Serif: Cactus-Classical-Serif;
   --font-Inter: Inter;
+  --font-IBMPlexSans: IBMPlexSans;
 }
 
 html, body {
