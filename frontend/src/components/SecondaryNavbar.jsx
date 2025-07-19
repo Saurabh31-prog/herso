@@ -27,7 +27,7 @@ function SecondaryNavbar() {
     }
 
     const handleScroll = () => {
-      console.log("Scroll position:", window.scrollY);
+      // console.log("Scroll position:", window.scrollY);
       setScrolled(window.scrollY > 261.7475891113281); // 👈 should trigger only after 1000px
     };
 
