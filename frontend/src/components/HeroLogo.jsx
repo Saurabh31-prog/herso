@@ -2,7 +2,13 @@ import HERSOlogo from "../assets/images/HERSOlogo.jpg";
 
 const HeroLogo = () => {
   return (
-    <div className="bg-white px-8 py-8">
+    <div
+      className="bg-white px-8 py-8 pt-24"
+      initial={{ opacity: 1, scale: 1 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, y: -30 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       <div className="caret-transparent max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
         {/* Logo with hover spin and glow */}
         <a href="/">
@@ -11,7 +17,7 @@ const HeroLogo = () => {
             alt="HERSO Logo"
             className="w-24 h-24 sm:w-30 sm:h-30 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain 
              transition-transform duration-500 ease-in-out 
-             hover:rotate-[2deg] hover:scale-105 hover:drop-shadow-md 
+              hover:drop-shadow-sm 
              cursor-pointer"
           />
         </a>
