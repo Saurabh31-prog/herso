@@ -1,13 +1,30 @@
 import HERSOlogo from "../assets/images/HERSOlogo.jpg";
+import { motion } from "framer-motion";
 
 const HeroLogo = () => {
+  const HeroSectionVariant = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        duration: 1.4,
+        delay: 0.2,
+      },
+    },
+  };
+
   return (
-    <div
-      className="bg-white px-8 py-8 pt-24"
-      initial={{ opacity: 1, scale: 1 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
+    <motion.div
+      className="bg-white px-8 py-8 pt-20"
+      variants={HeroSectionVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.4 }}
     >
       <div className="caret-transparent max-w-screen-xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
         {/* Logo with hover spin and glow */}
@@ -47,7 +64,7 @@ const HeroLogo = () => {
           </p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

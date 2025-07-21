@@ -1,5 +1,10 @@
 import { useLocation } from "react-router-dom";
-import { useAnimation } from "framer-motion";
+import {
+  useAnimation,
+  motion,
+  MotionConfig,
+  AnimatePresence,
+} from "framer-motion";
 
 import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
@@ -12,12 +17,82 @@ import { PiMagnifyingGlassBold } from "react-icons/pi";
 import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-//framer
-import { motion } from "framer-motion";
-
 import SearchModal from "./SearchModal"; // path based on your folder structure
 
 function SecondaryNavbar() {
+  //for the search icon animation...
+  const [hovered, setHovered] = useState(false);
+
+  const iconVariants = {
+    initial: { y: 0, opacity: 1 },
+    hover: { y: -10, opacity: 0 },
+  };
+
+  const textVariants = {
+    initial: { y: 10, opacity: 0 },
+    hover: { y: 0, opacity: 1 },
+    transition: { delay: 0.2, duration: 0.3 },
+  };
+
+  //hammenu code
+  const variants = {
+    top: {
+      open: {
+        rotate: ["0deg", "0deg", "45deg"],
+        top: ["35%", "50%", "50%"],
+      },
+      closed: {
+        rotate: ["45deg", "0deg", "0deg"],
+        top: ["50%", "50%", "35%"],
+      },
+    },
+    middle: {
+      open: {
+        rotate: ["0deg", "0deg", "-45deg"],
+      },
+      closed: {
+        rotate: ["-45deg", "0deg", "0deg"],
+      },
+    },
+    bottom: {
+      open: {
+        rotate: ["0deg", "0deg", "45deg"],
+        bottom: ["35%", "50%", "50%"],
+        left: "50%",
+      },
+      closed: {
+        rotate: ["45deg", "0deg", "0deg"],
+        bottom: ["50%", "50%", "35%"],
+        left: "50%",
+      },
+    },
+  };
+
+  //mobile view hamburgermenu items animation
+  const menuVariants = {
+    hidden: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        when: "afterChildren",
+      },
+    },
+    visible: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+        ease: "easeInOut",
+        duration: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   {
     /* for the  search bar */
@@ -92,34 +167,8 @@ function SecondaryNavbar() {
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* leftmost section ---------Contact Tooltip */}
-          <ContactTooltip scrolled={scrolled} />
-
-          {/* Toggle Button for Mobile  hamburger menu and close button*/}
-          <div className="md:hidden flex-1">
-            <button
-              onClick={() => setIsMobileOpen(!isMobileOpen)}
-              className="text-white text-2xl focus:outline-none relative w-8 h-8"
-            >
-              <span
-                className={`absolute inset-0 flex items-center justify-center leading-none transition-all duration-300 ease-in-out transform ${
-                  isMobileOpen
-                    ? "opacity-0 scale-90 rotate-45"
-                    : "opacity-100 scale-100 rotate-0"
-                }`}
-              >
-                <FaBars size={24} />
-              </span>
-
-              <span
-                className={`absolute inset-0 flex items-center justify-center leading-none transition-all duration-300 ease-in-out transform ${
-                  isMobileOpen
-                    ? "opacity-100 scale-100 rotate-0"
-                    : "opacity-0 scale-90 -rotate-45"
-                }`}
-              >
-                <FiX size={28} />
-              </span>
-            </button>
+          <div className="hidden md:block">
+            <ContactTooltip scrolled={scrolled} />
           </div>
 
           {/* Desktop visible {full-screen} Nav Links */}
@@ -266,114 +315,216 @@ function SecondaryNavbar() {
             </li>
           </ul>
 
-          {/*search Icon and everything-------------- */}
+          {/* Right section search Icon and everything-------------- */}
           {/* Search Icon */}
-          <div className="flex-shrink-0">
-            <button
+          <div className="flex-shrink-0 hidden md:block">
+            <div
+              className="relative h-8 w-16 flex items-center justify-center overflow-hidden group cursor-pointer"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
               onClick={() => setIsSearchOpen(true)}
-              className={`transition-colors duration-300 p-2 rounded-md focus:outline-none ${
-                scrolled
-                  ? "text-black hover:text-teal-600"
-                  : "text-white hover:text-teal-400"
-              }`}
               aria-label="Open search"
             >
-          <motion.div
-  className="cursor-pointer"
-  whileHover={{
-    y: ["0%", "-60%", "60%", "0%"],  // Up out of view, then instantly below, then back to original
-    opacity: [1, 0, 0, 1],           // Invisible offscreen, fade in as it returns
-  }}
-  transition={{
-    times: [0, 0.3, 0.7, 1],
-    duration: 0.7,
-    ease: "easeInOut",
-  }}
->
-  <PiMagnifyingGlassBold className="cursor-pointer" size={20} />
-</motion.div>
+              {/* Icon */}
+              <motion.div
+                variants={iconVariants}
+                animate={hovered ? "hover" : "initial"}
+                transition={{ duration: 0.1, ease: "easeOut" }}
+                className={`absolute top-1/4 left-1/2 -translate-x-1/2 text-base ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                <PiMagnifyingGlassBold size={20} />
+              </motion.div>
 
-
-            </button>
+              {/* Text */}
+              <motion.div
+                variants={textVariants}
+                animate={hovered ? "hover" : "initial"}
+                transition={{ duration: 0.1, ease: "linear" }}
+                className={`absolute top-1/5 left-1/2 -translate-x-1/2 text-sm font-medium font-IBMPlexSans ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                SEARCH
+              </motion.div>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Dropdown --------------------------------------------------------------*/}
-        {isMobileOpen && (
-          <div
-            className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
-              isMobileOpen
-                ? "max-h-[600px] opacity-100"
-                : "max-h-0 opacity-0 pointer-events-none"
-            }`}
+        {/************************************************************************ MOBILE VIEW  DOWN ********************************************************/}
+
+        {/* new menu down  */}
+
+        {/* -----MOBILE VIEW  WITH  left hammenu and right search icon  ----- */}
+
+        <div className="flex justify-between items-center md:hidden">
+          {/* Hamburger Menu */}
+          {/* <button
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className={`${
+              scrolled ? "text-black" : "text-white"
+            } text-2xl focus:outline-none transition-transform duration-300`}
+            aria-label="Toggle navigation"
           >
-            <ul className="flex flex-col space-y-4 mt-4 text-sm font-semilight uppercase tracking-wide px-4">
-              <li>
-                <Link to="/" className="hover:text-cyan-400">
+            {isMobileOpen ? <FiX size={28} /> : <FaBars size={24} />}
+          </button> */}
+          <AnimatedHamburgerButton
+            variants={variants}
+            onToggle={() => setIsMobileOpen((prev) => !prev)}
+          />
+
+          <div className="flex-shrink-0">
+            <div
+              className="relative h-8 w-16 flex items-center justify-center overflow-hidden group cursor-pointer"
+              onMouseEnter={() => setHovered(true)}
+              onMouseLeave={() => setHovered(false)}
+              onClick={() => setIsSearchOpen(true)}
+              aria-label="Open search"
+            >
+              {/* Icon */}
+              <motion.div
+                variants={iconVariants}
+                animate={hovered ? "hover" : "initial"}
+                transition={{ duration: 0.1, ease: "easeOut" }}
+                className={`absolute top-1/4 left-1/2 -translate-x-1/2 text-base ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                <PiMagnifyingGlassBold size={20} />
+              </motion.div>
+
+              {/* Text */}
+              <motion.div
+                variants={textVariants}
+                animate={hovered ? "hover" : "initial"}
+                transition={{ duration: 0.1, ease: "linear" }}
+                className={`absolute top-1/5 left-1/2 -translate-x-1/2 text-sm font-medium font-IBMPlexSans ${
+                  scrolled ? "text-black" : "text-white"
+                }`}
+              >
+                SEARCH
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* -----MOBILE MENU CONTENT ----- */}
+
+        <AnimatePresence>
+          {isMobileOpen && (
+            <motion.div
+              key="mobileMenu"
+              variants={menuVariants}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden overflow-hidden bg-[#2f4f4f] text-white px-6 py-4 rounded-lg mt-4 space-y-4"
+            >
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Home
                 </Link>
-              </li>
-              <li>
-                <details className="group cursor-pointer">
-                  <summary className="flex justify-between items-center hover:text-cyan-400">
-                    About Society
-                    <FiChevronDown className=" ml-1 transition-transform duration-300 group-open:rotate-180" />
-                  </summary>
-                  <div className="overflow-hidden max-h-0 group-open:max-h-40 transition-all duration-500 ease-in-out ml-4 mt-2 space-y-2 text-white/80">
-                    <Link
-                      to="about/society-at-glance"
-                      className="block hover:text-cyan-400"
-                    >
-                      Society at Glance
-                    </Link>
-                    <Link
-                      to="about/objectives"
-                      className="block hover:text-cyan-400"
-                    >
-                      Objectives
-                    </Link>
-                    <Link
-                      to="about/registration-details"
-                      className="block hover:text-cyan-400"
-                    >
-                      Registration Details
-                    </Link>
-                  </div>
-                </details>
-              </li>
-              <li>
-                <Link to="/management" className="hover:text-cyan-400">
+              </motion.div>
+
+              {/* About Society collapsible */}
+              <details className="group">
+                <summary className="flex items-center justify-between text-sm uppercase cursor-pointer hover:text-cyan-400 font-IBMPlexSans font-light">
+                  About Society
+                  <FiChevronDown className="transition-transform duration-300 group-open:rotate-180" />
+                </summary>
+                <div className="pl-4 mt-2 space-y-2 text-white/90">
+                  <Link
+                    to="about/society-at-glance"
+                    className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    SOCIETY AT GLANCE
+                  </Link>
+                  <Link
+                    to="about/objectives"
+                    className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    OBJECTIVES
+                  </Link>
+                  <Link
+                    to="about/registration-details"
+                    className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    REGISTRATION DETAILS
+                  </Link>
+                </div>
+              </details>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/management"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light  text-white"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Management
                 </Link>
-              </li>
-              <li>
-                <Link to="/mission" className="hover:text-cyan-400">
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/mission"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Mission
                 </Link>
-              </li>
-              <li>
-                <Link to="/online-journal" className="hover:text-cyan-400">
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/online-journal"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Online Journal
                 </Link>
-              </li>
-              <li>
-                <Link to="/print-journal" className="hover:text-cyan-400">
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/print-journal"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Print Journal
                 </Link>
-              </li>
-              <li>
-                <Link to="/gallery" className="hover:text-cyan-400">
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/photo-gallery"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Photo Gallery
                 </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-cyan-400">
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/contact"
+                  className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                  onClick={() => setIsMobileOpen(false)}
+                >
                   Contact
                 </Link>
-              </li>
-            </ul>
-          </div>
-        )}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
 
       {/*search overlay screen---------------------- */}
@@ -387,6 +538,10 @@ function SecondaryNavbar() {
       }
     </>
   );
+}
+
+{
+  /** Left navbar section contact info  */
 }
 
 const ContactTooltip = ({ scrolled }) => {
@@ -425,32 +580,6 @@ const ContactTooltip = ({ scrolled }) => {
         }`}
       />
 
-      {/* Tooltip Dropdown */}
-      {/* <div
-        className={`absolute top-full  rounded-lg border border-gray-500 shadow-lg left-25 transform -translate-x-1/2 mt-3 w-64 max-w-[90vw] bg-white text-black font-bold  z-50 space-y-0 transition-all duration-300 ease-in-out ${
-    isTooltipOpen
-      ? "opacity-100 scale-100 pointer-events-auto"
-      : "opacity-0 scale-95 pointer-events-none"
-  }`}
-      >
-        <div className="block px-6 py-3 hover:bg-cyan-200 hover:text-black rounded-t-lg text-sm transition-colors duration-300 font-IBMPlexSans font-light">
-          <FaPhoneSquareAlt />
-          <a href="tel:+919322530571" className="text-sm font-IBMPlexSans font-light">
-            +91-9322530571
-          </a>
-        </div>
-        <div className="block px-6 py-3 hover:bg-cyan-200 hover:text-black rounded-b-lg text-sm transition-colors duration-300 font-IBMPlexSans font-light">
-          <IoMail />
-          <a
-            href="mailto:sudhirnikam@gmail.com"
-            className="text-sm font-IBMPlexSans font-light"
-          >
-            sudhirnikam@gmail.com
-          </a>
-        </div>
-      </div> */}
-
-      {/* Tooltip Dropdown */}
       <div
         className={`absolute top-full rounded-lg border border-gray-500 shadow-lg left-25 transform -translate-x-1/2 mt-3 w-64 max-w-[90vw] bg-white text-black font-bold z-50 space-y-0 transition-all duration-300 ease-in-out ${
           isTooltipOpen
@@ -478,6 +607,46 @@ const ContactTooltip = ({ scrolled }) => {
         </div>
       </div>
     </div>
+  );
+};
+
+//animated hamburger menu
+
+const AnimatedHamburgerButton = ({ variants, onToggle }) => {
+  const [active, setActive] = useState(false);
+  return (
+    <MotionConfig
+      transition={{
+        duration: 0.5,
+        ease: "easeInOut",
+      }}
+    >
+      <motion.button
+        initial={false}
+        animate={active ? "open" : "closed"}
+        onClick={() => {
+          setActive((pv) => !pv);
+          if (onToggle) onToggle();
+        }}
+        className="relative h-10 w-10 rounded-md bg-transparent"
+      >
+        <motion.span
+          variants={variants.top}
+          className="absolute h-0.5 w-6 bg-white"
+          style={{ y: "-50%", left: "50%", x: "-50%", top: "35%" }}
+        />
+        <motion.span
+          variants={variants.middle}
+          className="absolute h-0.5 w-6 bg-white"
+          style={{ left: "50%", x: "-50%", top: "50%", y: "-50%" }}
+        />
+        <motion.span
+          variants={variants.bottom}
+          className="absolute h-0.5 w-6 bg-white"
+          style={{ y: "50%", left: "50%", x: "-50%", bottom: "35%" }}
+        />
+      </motion.button>
+    </MotionConfig>
   );
 };
 

@@ -2,8 +2,9 @@ import { createBrowserRouter,
         createRoutesFromElements,
         Route,
  } from "react-router-dom"; 
-import App from "../App"; //will become layout
+import { AnimatePresence } from "framer-motion";
 
+import App from "../App"; //will become layout
 import Home from "../pages/Home";
 import Mission from "../pages/Mission";
 import Objectives from "../pages/Objectives";

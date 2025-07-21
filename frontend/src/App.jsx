@@ -30,6 +30,7 @@ function App() {
       {/* Main content area */}
       <main className="flex-grow">
         <AnimatePresence mode="wait">
+          <ScrollToTop/>
           <Outlet /> {/* Use Outlet to render nested routes */}
         </AnimatePresence>
       </main>
