@@ -48,7 +48,7 @@ function Contact() {
             <FaMapMarkerAlt className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
             Official Address
           </h2>
-          <address className="not-italic text-gray-700 leading-relaxed text-base font">
+          <address className="not-italic text-gray-700 leading-relaxed text-base font-Inter">
             NL 6/5/13, Sector – 10, <br />
             Nerul, Navi Mumbai – 400706<br />
             Maharashtra, India
@@ -62,11 +62,11 @@ function Contact() {
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-1" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4 flex items-center gap-3" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             <FaEnvelope  className="text-cyan-600 group-hover:scale-110 transition-transform duration-300" />
-            <span className="font-Cactus-Classical-Serif whitespace-nowrap" >Address for Correspondence</span>
+            <span className="font-Cactus-Classical-Serif whitespace-nowrap" >Correspondence Address</span>
           </h2>
-          <address className="not-italic text-gray-700 leading-relaxed text-base">
+          <address className="not-italic text-gray-700 leading-relaxed  font-Inter">
             Dr. Sudhir Nikam <br />
             A-2, 503, Punyoday Park <br />
             Near Don Bosco School, Adharwadi <br />
@@ -91,21 +91,6 @@ function Contact() {
           </div>
         </motion.div>
       </div>
-      {/* Mobile Action Bar
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex md:hidden gap-4">
-        <a
-          href="tel:09322530571"
-          className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-cyan-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        >
-          <FaPhoneAlt /> Call
-        </a>
-        <a
-          href="mailto:sudhirnikam@gmail.com"
-          className="flex items-center gap-2 bg-cyan-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-cyan-800 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-        >
-          <FaEnvelope /> Email
-        </a>
-      </div> */}
     </section>
   );
 }

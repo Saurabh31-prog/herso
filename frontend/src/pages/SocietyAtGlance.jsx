@@ -3,8 +3,6 @@ import { motion } from "framer-motion";
 export default function SocietyAtGlance() {
   return (
     <section className="relative flex flex-col flex-grow justify-center items-center bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
-
-
       {/* Decorative Background Blobs */}
       <motion.div
         aria-hidden
@@ -28,7 +26,10 @@ export default function SocietyAtGlance() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <h1 className="text-3xl md:text-4xl font-bold  font-Libre-Baskerville text-center" style={{wordSpacing: "0.3em"}}>
+        <h1
+          className="text-3xl md:text-4xl font-bold  font-Libre-Baskerville text-center"
+          style={{ wordSpacing: "0.3em" }}
+        >
           SOCIETY AT GLANCE
         </h1>
         <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-1 mb-7" />

@@ -33,7 +33,6 @@ const sectionVariants = {
   },
 };
 
-
 function Home() {
   return (
     <motion.main
@@ -98,7 +97,7 @@ function Home() {
 
                 {/* Custom Left Button */}
                 <button
-                  className="custom-prev absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white text-2xl sm:text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50"
+                  className="custom-prev absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-white text-2xl sm:text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-49"
                   aria-label="Previous Slide"
                 >
                   <FaChevronCircleLeft
@@ -109,7 +108,7 @@ function Home() {
 
                 {/* Custom Right Button */}
                 <button
-                  className="custom-next absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white text-2xl sm:text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50"
+                  className="custom-next absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 text-white text-2xl sm:text-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-49"
                   aria-label="Next Slide"
                 >
                   <FaChevronCircleRight

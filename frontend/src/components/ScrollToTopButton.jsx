@@ -42,7 +42,7 @@ function ScrollToTopButton() {
 // </button>
     <button
   onClick={scrollToTop}
-  className="group fixed bottom-26 right-6 z-50 w-12 h-12 flex items-center justify-center text-blue-200  rounded-full cursor-pointer"
+  className="group fixed bottom-26 right-6 z-50 w-12 h-12 flex items-center justify-center text-emerald-600 rounded-full cursor-pointer"
 >
   <TbArrowBigUpLineFilled size={22} />
 

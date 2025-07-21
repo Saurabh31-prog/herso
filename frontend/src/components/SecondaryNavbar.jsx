@@ -144,16 +144,16 @@ function SecondaryNavbar() {
     <>
       <motion.nav
         className={`
-        ${
-          scrolled
-            ? "bg-white/30 backdrop-blur-lg shadow-lg text-gray-900 fixed top-4 left-0 right-0 mx-6 rounded-lg z-999 transition-all duration-500 border border-gray-500"
-            : isHome
-            ? "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
-            : "bg-[#2f4f4f] text-white fixed top-0 left-0 w-full z-50 transition-all duration-500"
-        } py-2 px-4 sm:py-4 sm:px-6
- select-none caret-transparent`}
+    ${
+      scrolled && window.innerWidth >= 768
+        ? "bg-white/30 backdrop-blur-lg shadow-lg fixed top-4 left-0 right-0 mx-6 rounded-lg border border-gray-500 text-black"
+        : "text-white"
+    }
+    bg-[#2f4f4f] fixed top-0 left-0 w-full z-50 transition-all duration-500
+    py-2 px-4 sm:py-4 sm:px-6 select-none caret-transparent
+  `}
         style={
-          scrolled
+          scrolled && window.innerWidth >= 768
             ? {
                 maxWidth: "calc(100vw - 3rem)",
                 marginLeft: "auto",
@@ -161,9 +161,6 @@ function SecondaryNavbar() {
               }
             : {}
         }
-        initial={{ opacity: 0, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* leftmost section ---------Contact Tooltip */}
@@ -371,6 +368,7 @@ function SecondaryNavbar() {
           </button> */}
           <AnimatedHamburgerButton
             variants={variants}
+            isActive={isMobileOpen}
             onToggle={() => setIsMobileOpen((prev) => !prev)}
           />
 
@@ -388,7 +386,7 @@ function SecondaryNavbar() {
                 animate={hovered ? "hover" : "initial"}
                 transition={{ duration: 0.1, ease: "easeOut" }}
                 className={`absolute top-1/4 left-1/2 -translate-x-1/2 text-base ${
-                  scrolled ? "text-black" : "text-white"
+                  scrolled ? "text-white" : "text-white"
                 }`}
               >
                 <PiMagnifyingGlassBold size={20} />
@@ -400,7 +398,7 @@ function SecondaryNavbar() {
                 animate={hovered ? "hover" : "initial"}
                 transition={{ duration: 0.1, ease: "linear" }}
                 className={`absolute top-1/5 left-1/2 -translate-x-1/2 text-sm font-medium font-IBMPlexSans ${
-                  scrolled ? "text-black" : "text-white"
+                  scrolled ? "text-white" : "text-white"
                 }`}
               >
                 SEARCH
@@ -527,6 +525,8 @@ function SecondaryNavbar() {
         </AnimatePresence>
       </motion.nav>
 
+
+
       {/*search overlay screen---------------------- */}
       {
         <SearchModal
@@ -612,8 +612,7 @@ const ContactTooltip = ({ scrolled }) => {
 
 //animated hamburger menu
 
-const AnimatedHamburgerButton = ({ variants, onToggle }) => {
-  const [active, setActive] = useState(false);
+const AnimatedHamburgerButton = ({ variants, onToggle, isActive }) => {
   return (
     <MotionConfig
       transition={{
@@ -623,11 +622,8 @@ const AnimatedHamburgerButton = ({ variants, onToggle }) => {
     >
       <motion.button
         initial={false}
-        animate={active ? "open" : "closed"}
-        onClick={() => {
-          setActive((pv) => !pv);
-          if (onToggle) onToggle();
-        }}
+        animate={isActive ? "open" : "closed"}
+        onClick={onToggle}
         className="relative h-10 w-10 rounded-md bg-transparent"
       >
         <motion.span
