@@ -6,6 +6,9 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
+import { NavLink } from "react-router-dom";
+
+
 import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 //message icon
@@ -172,9 +175,9 @@ function SecondaryNavbar() {
           <ul className="hidden md:flex space-x-6 uppercase text-sm font-semibold tracking-wide">
             <li className="relative group cursor-pointer">
               <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
-                <Link className="font-IBMPlexSans font-light" to="/">
+                <NavLink className="font-IBMPlexSans font-light" to="/">
                   Home
-                </Link>
+                </NavLink>
                 <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
               </span>
             </li>
@@ -238,25 +241,41 @@ function SecondaryNavbar() {
                 >
                   Objectives
                 </Link>
+
+                <Link
+                  to="/mission"
+                  className="block px-6 py-3 hover:bg-cyan-200 hover:text-black  text-sm font-IBMPlexSans font-light transition-colors duration-300"
+                >
+                  MISSION
+                </Link>
+
+                  <Link
+                  to="/management"
+                  className="block px-6 py-3 hover:bg-cyan-200 hover:text-black  text-sm font-IBMPlexSans font-light transition-colors duration-300"
+                >
+                  Management
+                </Link>
+
                 <Link
                   to="about/registration-details"
                   className="block px-6 py-3 hover:bg-cyan-200 hover:text-black rounded-b-lg text-sm font-IBMPlexSans font-light transition-colors duration-300"
                 >
                   Registration Details
                 </Link>
+                
               </div>
             </li>
 
-            <li className="relative group cursor-pointer">
+            {/* <li className="relative group cursor-pointer">
               <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
                 <Link className="font-IBMPlexSans font-light" to="/management">
                   Management
                 </Link>
                 <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
               </span>
-            </li>
+            </li> */}
 
-            <li className="relative group cursor-pointer">
+            {/* <li className="relative group cursor-pointer">
               <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
                 <Link className="font-IBMPlexSans font-light" to="/mission">
                   Mission
@@ -264,7 +283,7 @@ function SecondaryNavbar() {
 
                 <span className="absolute bottom-0 left-0 h-[1px] w-full scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left bg-cyan-400 transition-transform duration-300 ease-in-out" />
               </span>
-            </li>
+            </li> */}
 
             <li className="relative group cursor-pointer">
               <span className="relative inline-block transition-all duration-300 ease-in-out transform group-hover:-translate-y-1 group-hover:scale-105 hover:text-cyan-400">
@@ -452,6 +471,20 @@ function SecondaryNavbar() {
                     OBJECTIVES
                   </Link>
                   <Link
+                    to="mission"
+                    className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    MISSION
+                  </Link>
+                  <Link
+                    to="/management"
+                    className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
+                    onClick={() => setIsMobileOpen(false)}
+                  >
+                    MANAGEMENT
+                  </Link>
+                  <Link
                     to="about/registration-details"
                     className="block text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
                     onClick={() => setIsMobileOpen(false)}
@@ -461,7 +494,7 @@ function SecondaryNavbar() {
                 </div>
               </details>
 
-              <motion.div variants={itemVariants}>
+              {/* <motion.div variants={itemVariants}>
                 <Link
                   to="/management"
                   className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light  text-white"
@@ -469,9 +502,9 @@ function SecondaryNavbar() {
                 >
                   Management
                 </Link>
-              </motion.div>
+              </motion.div> */}
 
-              <motion.div variants={itemVariants}>
+              {/* <motion.div variants={itemVariants}>
                 <Link
                   to="/mission"
                   className="block uppercase text-sm hover:text-cyan-400 font-IBMPlexSans font-light"
@@ -479,7 +512,7 @@ function SecondaryNavbar() {
                 >
                   Mission
                 </Link>
-              </motion.div>
+              </motion.div> */}
 
               <motion.div variants={itemVariants}>
                 <Link

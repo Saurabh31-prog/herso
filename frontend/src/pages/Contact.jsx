@@ -31,7 +31,7 @@ function Contact() {
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <h1 className="text-4xl md:text-5xl font-bold font-Libre-Baskerville text-gray-900 tracking-wide mb-2">
-          Get in Touch
+          GET IN TOUCH
         </h1>
         <div className="w-20 border-t-2 border-cyan-500 mx-auto mt-6" />
       </motion.div>

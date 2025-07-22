@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 //image navigation icons
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
@@ -33,7 +34,18 @@ const sectionVariants = {
   },
 };
 
+
+
 function Home() {
+  //home scrolltotop handler after everyvisit
+useEffect(() => {
+  const timeout = setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "instant" }); // or "smooth"
+  }, 50); // wait a bit after mount
+
+  return () => clearTimeout(timeout);
+}, []);
+
   return (
     <motion.main
       className="flex-grow"
@@ -43,7 +55,7 @@ function Home() {
       transition={{ duration: 1.2, ease: "easeOut" }}
     >
       {/* Hero Section */}
-      <section className="bg-hero-bg bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
+      <section className="bg-hero-bg bg-emerald-200  px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Left Content */}
@@ -124,7 +136,7 @@ function Home() {
 
       {/* Section 2 ------------------------------------------------------------- */}
 
-      <section className="bg-section-dark bg-gradient-to-br from-emerald-200 via-blue-100 to-violet-300 px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <section className="bg-section-dark bg-white/100 px-4 sm:px-6 py-12 sm:py-16 lg:py-24">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* Right Content: President's Desk */}
@@ -137,8 +149,8 @@ function Home() {
             >
               <div className="bg-gray-800 text-white px-6 py-3 text-lg font-medium">
                 From President’s Desk
-              </div>
-              <div className="p-6 lg:flex gap-6 items-start">
+              </div> 
+              <div className="p-6 lg:flex gap-6 items-start border-1 rounded-b-lg">
                 <img
                   src={president} // Replace with actual path
                   alt="President"
