@@ -24,6 +24,8 @@ export default {
         accent: "#f4a261", // Warm Orange
         neutral: "#f8f9fa", // Soft White
       },
+
+      
     },
   },
   plugins: [],

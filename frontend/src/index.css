@@ -1,23 +1,33 @@
  @font-face{
   font-family: Libre-Baskerville; /* heading-font */
   src: url('./assets/fonts/LibreBaskerville-Bold.ttf');
+    font-display: swap;
+
  }
  @font-face {
   font-family: 'UoqMunThenKhung';
   src: url('./assets/fonts/UoqMunThenKhung-Regular.ttf') format('truetype');
+    font-display: swap;
+
 }
 @font-face {
   font-family: 'Cactus-Classical-Serif'; /* body-font secondary headingfont */
   src: url('./assets/fonts/CactusClassicalSerif-Regular.ttf') format('truetype');
+    font-display: swap;
+
 }
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/Inter.ttf') format('truetype');
+    font-display: swap;
+
 }
 /* navbar-font */
 @font-face {
   font-family: 'IBMPlexSans';
   src: url('./assets/fonts/IBMPlexSans-Regular.ttf') format('truetype');
+    font-display: swap;
+
 }
 
 
