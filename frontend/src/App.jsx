@@ -9,14 +9,17 @@ import HeroLogo from "./components/HeroLogo";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import SecondaryNavbar from "./components/SecondaryNavbar";
 import ScrollToTop from "./components/ScrollToTop";
+import SidebarWrapper from "./components/Sidebar";
 
-function App() {
+function App() {  
   const location = useLocation();
   const isHome = location.pathname === "/";
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen no-overscroll">
       <ScrollToTop />
+          <SidebarWrapper />
+
       {/* Navbar always visible */}
       <SecondaryNavbar />
 
