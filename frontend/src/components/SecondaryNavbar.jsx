@@ -8,7 +8,6 @@ import {
 
 import { NavLink } from "react-router-dom";
 
-
 import { useState, useRef, useEffect } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 //message icon
@@ -249,7 +248,7 @@ function SecondaryNavbar() {
                   MISSION
                 </Link>
 
-                  <Link
+                <Link
                   to="/management"
                   className="block px-6 py-3 hover:bg-cyan-200 hover:text-black  text-sm font-IBMPlexSans font-light transition-colors duration-300"
                 >
@@ -262,7 +261,6 @@ function SecondaryNavbar() {
                 >
                   Registration Details
                 </Link>
-                
               </div>
             </li>
 
@@ -557,8 +555,6 @@ function SecondaryNavbar() {
           )}
         </AnimatePresence>
       </motion.nav>
-
-
 
       {/*search overlay screen---------------------- */}
       {

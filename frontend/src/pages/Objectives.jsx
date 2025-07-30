@@ -20,7 +20,7 @@ function Objectives() {
   ];
 
   return (
-    <section className="relative flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 via-violet-100 to-emerald-100 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
+    <section className="relative flex flex-col justify-center items-center  bg-emerald-200 py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
       {/* Background Decorative Blobs */}
       <motion.div
         aria-hidden

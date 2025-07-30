@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 //image navigation icons
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
@@ -34,17 +35,19 @@ const sectionVariants = {
   },
 };
 
-
-
 function Home() {
-  //home scrolltotop handler after everyvisit
-useEffect(() => {
-  const timeout = setTimeout(() => {
-    window.scrollTo({ top: 0, behavior: "instant" }); // or "smooth"
-  }, 50); // wait a bit after mount
+  const location  = useLocation();
 
-  return () => clearTimeout(timeout);
-}, []);
+  //home scrolltotop handler after everyvisit
+ useEffect(() => {
+    if (location.pathname === "/") {
+      const timeout = setTimeout(() => {
+        window.scrollTo({ top: 10, behavior: "smooth" }); // 👈 scroll down 10px
+      }, 100); // slight delay to ensure page renders
+
+      return () => clearTimeout(timeout);
+    }
+  }, [location.pathname]);
 
   return (
     <motion.main
@@ -149,7 +152,7 @@ useEffect(() => {
             >
               <div className="bg-gray-800 text-white px-6 py-3 text-lg font-medium">
                 From President’s Desk
-              </div> 
+              </div>
               <div className="p-6 lg:flex gap-6 items-start border-1 rounded-b-lg">
                 <img
                   src={president} // Replace with actual path
