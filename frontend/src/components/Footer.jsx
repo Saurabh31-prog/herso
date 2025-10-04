@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="mt-auto bg-gray-900 text-base-content text-white px-6 py-10 pb-10 pt-10 select-none caret-transparent">
+    <footer className="mt-auto bg-[#3E3F5B] text-base-content text-white px-6 py-10 pb-10 pt-10 select-none caret-transparent">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6 w-full">
         {/* Left: Copyright */}
         <aside className="text-center md:text-left">
@@ -24,13 +24,13 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <BsYoutube className="text-2xl transition-transform duration-300 hover:-translate-y-1 hover:text-red-500 cursor-pointer" />
+              <BsYoutube className="text-2xl transition-transform duration-400 hover:scale-120 hover:text-red-500 cursor-pointer" />
             </a>
             <a href="#">
-              <FaSquareXTwitter className="text-2xl cursor-pointer hover:text-gray-400  transition-transform duration-300 hover:-translate-y-1" />
+              <FaSquareXTwitter className="text-2xl cursor-pointer hover:text-gray-400  transition-transform duration-400 hover:scale-120" />
             </a>
             <a href="#">
-              <FaFacebook className="text-2xl cursor-pointer hover:text-blue-300 transition-transform duration-300 hover:-translate-y-1" />
+              <FaFacebook className="text-2xl cursor-pointer hover:text-blue-400 transition-transform duration-400 hover:scale-120" />
             </a>
           </div>
         </nav>

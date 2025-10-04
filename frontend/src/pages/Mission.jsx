@@ -3,21 +3,20 @@ import { motion } from "framer-motion";
 
 function Mission() {
   return (
-    <section className="relative flex flex-col flex-grow justify-center items-center bg-emerald-200  py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
+    <section className="relative flex flex-col flex-grow justify-center items-center bg-[#7ADAA5]  py-16 px-2 sm:px-6 pt-32 select-none caret-transparent min-h-screen">
       {/* Decorative background blob */}
       <motion.div
         aria-hidden
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 0.15, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute -top-20 -left-20 w-96 h-96 bg-cyan-200 rounded-full blur-3xl z-0"
       />
       <motion.div
         aria-hidden
         initial={{ opacity: 0, scale: 0.7 }}
         animate={{ opacity: 0.12, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-        className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-100 rounded-full blur-2xl z-0"
+      
       />
       {/* Logo and Title */}
       <motion.div
